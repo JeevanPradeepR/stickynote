@@ -10,8 +10,8 @@ function App() {
        <BrowserRouter>
         <Routes>
             <Route index path="/stickynote" element={<StickyApp/>} />
-            <Route exact path="/add" element={<AddNotes/>} />
-            <Route exact path="/view/:id" element={<ViewNotes/>} />
+            <Route path="/add" element={<AddNotes/>} />
+            <Route path="/view/:id" element={<ViewNotes/>} />
             <Route path="*" element={<ErrorPage/>} />
         </Routes>
       </BrowserRouter>
