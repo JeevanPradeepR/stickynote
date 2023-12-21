@@ -56,10 +56,10 @@ function AddNotes() {
           onInput={(e)=>setNote(e.target.value)}
         />           
             <div className="addnotes-save">
-                <Link to="/">
+                <Link to="/stickynote">
                     <Button variant="contained" onClick={handleSave}>Save & GoBack</Button>
                 </Link> &nbsp;
-                <Link to="/">
+                <Link to="/stickynote">
                     <Button variant="outlined">Cancel</Button>
                 </Link>
             </div>

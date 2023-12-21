@@ -48,7 +48,7 @@ function ViewNotes(){
                          <AlertTitle>Are you sure want to delete this file?</AlertTitle>
                          Once deleted, file can't be recovered<strong>!</strong>
                         <br/><br/>
-                        <Link to="/">
+                        <Link to="/stickynote">
                             <Button variant="contained" color="error" onClick={()=>{ handleConfirmDelete(); setDeleteComponent(<></>)}}>
                             Yes
                             </Button>
@@ -127,12 +127,12 @@ function ViewNotes(){
         <div class="viewnote-buttons">
             <Button variant="contained" startIcon={<SaveIcon/ >} color="primary" onClick={handleSave}>Save</Button>
             &nbsp;
-            {/* <Link to="/"> */}
+            {/* <Link to="/stickynote"> */}
                 <Button variant="outlined" startIcon={<DeleteIcon />} onClick={handleDelete}>Delete</Button>
                 
             {/* </Link> */}
             &nbsp;
-            <Link to="/"><Button variant="outlined" startIcon={<FastRewindIcon />}>Back</Button></Link>
+            <Link to="/stickynote"><Button variant="outlined" startIcon={<FastRewindIcon />}>Back</Button></Link>
             <div className="viewnote-date">
                 <sup>created: {noteId.date}</sup>
                 {noteId.modified && <sup><br/>modified: {noteId.modified}</sup>}
@@ -142,7 +142,7 @@ function ViewNotes(){
         <div>
             <Alert variant="filled" severity="error">
                         <AlertTitle>Error 404 Page not found!</AlertTitle>
-                        Click <Link to="/"><b>here</b></Link> to go back
+                        Click <Link to="/stickynote"><b>here</b></Link> to go back
             </Alert>
         </div>
         }
