@@ -1,0 +1,99 @@
+
+.viewnote {
+    width: 100% !important;
+    height: 100% !important;
+    div{
+        textarea{
+            height: 70vh !important;
+            color: #16619b;
+        }
+    }
+}
+.sample{
+    color: #16619b;
+}
+.App {
+    margin: 0 auto;
+    max-width: 99%;
+}
+
+.addnotes-save {
+    margin-top: 10px;
+}
+
+.searchbox {
+    padding: 10px;
+    border-radius: 20px;
+    margin-left: 30%;
+    width:30%;
+    border-color:#4dabf5;
+}
+
+.header-add {
+    color: white;
+}
+
+.addnotes-title {
+    text-align: center;
+    color: #4dabf5;
+}
+
+.stickynote-paper {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    display: inline-table;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 20px;
+}
+
+.stickynote-content {
+    font-size: 12px;
+}
+
+.stickynote-nofile {
+    color: #4dabf5;
+}
+
+.viewnote-title {
+    border-color: #4dabf5;
+    padding: 7px; 
+    border-radius: 10px;
+    width: 200px; 
+}
+
+.viewnote-date {
+    display: inline-block;
+    text-align: right;
+    float: right;
+    font-weight: 900;
+    color: #0068b7
+}
+
+.viewnote-buttons {
+    margin-top: 1%;
+}
+
+.backdrop {
+    color: #fff; 
+    z-index: 1;
+    .backdrop-alertbox {
+        position: absolute;
+        border-radius: 20px;
+    }
+}
+.appbar {
+    background-color: #4dabf5!important;
+}
+
+body {
+    animation-name: example;
+    animation-duration: 4s;
+  }
+  
+  @keyframes example {
+    from {background-color: #4dabf5; display: block;}
+    to {background-color: white; display: block;}
+  }
