@@ -19,6 +19,9 @@ import Tooltip from '@mui/material/Tooltip';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Backdrop from '@mui/material/Backdrop';
+import HeaderTemplate from "../header/header";
+import PreviewAndEdit from "./previewEdit";
+import HeaderTitle from "./headerTitle";
 
 function ViewNotes(){
     const location = useLocation();
@@ -85,29 +88,20 @@ function ViewNotes(){
     return(
         <div>
             {location.state && <div>
-        <Box sx={{ flexGrow: 1}}  >
-            <AppBar position="static" className="appbar">
-                <Toolbar>
-                <IconButton
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
-                    sx={{ mr: 2 }}
-                >
-                    <EditNoteOutlinedIcon />
-                </IconButton>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    StickyNote
-                </Typography> 
-                <EventNoteIcon/>
-                <Typography variant="h6" component="p" sx={{marginRight:'35%', fontWeight:'600'}}>View Notes &nbsp;
-                <input className="viewnote-title" onChange={(e)=>setNoteId({...noteId,title:e.target.value})} defaultValue={noteId.title}></input></Typography>
-                {!edit && <Tooltip title="View" arrow><PreviewIcon onClick={()=>setEdit(true)}/></Tooltip>}
-                {edit && <Tooltip title="Edit" arrow><EditIcon onClick={()=>setEdit(false)}/></Tooltip>}
-                </Toolbar>
-            </AppBar>
-        </Box>
+        <HeaderTemplate 
+            headerComponent={
+                <HeaderTitle 
+                    noteId={noteId} 
+                    setNoteId={setNoteId}
+                />
+            } 
+            footer = {
+                <PreviewAndEdit 
+                    titleText={edit?'Edit':'View'} 
+                    icon={edit?<EditIcon onClick={()=>setEdit(false)}/>:<PreviewIcon onClick={()=>setEdit(true)}/>}
+                />
+            }
+        />
 
         {deleteConfimationComponent}
         

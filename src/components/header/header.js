@@ -9,7 +9,7 @@ import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
 import AddCardOutlinedIcon from '@mui/icons-material/AddCardOutlined';
 import {Link} from "react-router-dom";
 
-export default function ButtonAppBar({searchDisplay,pro}) {
+export default function HeaderTemplate({headerComponent, footer}) {
   return (
     <Box sx={{ flexGrow: 1}}  >
       <AppBar position="static" className='appbar'>
@@ -25,12 +25,9 @@ export default function ButtonAppBar({searchDisplay,pro}) {
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             StickyNote
-            <input onChange={(e)=>searchDisplay(e.target.value)}
-            placeholder="search" type="search" className='searchbox'/>
+            {headerComponent}
           </Typography>
-          <Link to="/add" className='header-add'>
-            <Button color="inherit"><AddCardOutlinedIcon/> &nbsp;<sub>Add</sub></Button>
-          </Link>    
+         {footer}    
         </Toolbar>
       </AppBar>
     </Box>

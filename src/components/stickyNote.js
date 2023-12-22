@@ -5,11 +5,13 @@ import ButtonAppBar from "./header";
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import AddCardOutlinedIcon from '@mui/icons-material/AddCardOutlined';
+import HeaderTemplate from '../components/header/header'
+import SearchInput from "./searchInput";
+import Redirect from "./redirectPage";
 
 function StickyApp(){
 
     const [stickyNote,setStickyNote] = useState([]);
-    const [search,setSearch] = useState("*");
 
     const displayStickyNote = (searchResult = '*') => {
         console.log(searchResult)
@@ -51,9 +53,7 @@ function StickyApp(){
             }
         }else{
             setStickyNote(handleCreateNewFileInfo())
-        }
-       
-      //  setStickyNote(stickyNote);
+        }       
     }
     const handlezeroFileSearch = (searchText) =>{
         return (  
@@ -62,7 +62,7 @@ function StickyApp(){
         The search doesn't match the keyword — <strong>retype the text or click 'x' in the search box to go back</strong>
       </Alert>)
     }
-    const handleCreateNewFileInfo = () =>{
+    const handleCreateNewFileInfo = () => {
         return(
             <Alert severity="info">
   <AlertTitle>Create a new file</AlertTitle>
@@ -73,10 +73,14 @@ function StickyApp(){
     useEffect(()=>{
        displayStickyNote();
     },[])
+    const sample = () => {
+    }
     return (
         <div>
-            <ButtonAppBar searchDisplay={displayStickyNote}/>
-     
+            <HeaderTemplate 
+                headerComponent={<SearchInput searchDisplay={displayStickyNote}/>} 
+                footer={<Redirect redirectTo='/add' icon={<AddCardOutlinedIcon/>} text='Add'/>}
+            />
             <br/> <br/>
             {stickyNote}
             
@@ -85,3 +89,4 @@ function StickyApp(){
 }
 
 export default StickyApp;
+
