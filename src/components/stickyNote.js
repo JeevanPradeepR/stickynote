@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import Paper from '@mui/material/Paper';
-import ButtonAppBar from "./header";
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import AddCardOutlinedIcon from '@mui/icons-material/AddCardOutlined';
-import HeaderTemplate from '../components/header/header'
+import HeaderTemplate from './spareparts/header'
 import SearchInput from "./searchInput";
 import Redirect from "./redirectPage";
 
@@ -73,8 +72,7 @@ function StickyApp(){
     useEffect(()=>{
        displayStickyNote();
     },[])
-    const sample = () => {
-    }
+
     return (
         <div>
             <HeaderTemplate 

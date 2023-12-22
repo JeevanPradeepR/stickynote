@@ -1,14 +1,10 @@
 import { useState } from "react";
 import {Link} from "react-router-dom";
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import HeaderTemplate from "../header/header";
+import HeaderTemplate from "../spareparts/header";
+import ActionButtons from "./footer";
 
 function AddNotes() {
     const [title,setTitle] = useState("Edit your title");
@@ -44,15 +40,14 @@ function AddNotes() {
           className="viewnote"
           defaultValue={note}
           onInput={(e)=>setNote(e.target.value)}
-        />           
-            <div className="addnotes-save">
-                <Link to="/">
-                    <Button variant="contained" onClick={handleSave}>Save & GoBack</Button>
-                </Link> &nbsp;
-                <Link to="/">
-                    <Button variant="outlined">Cancel</Button>
-                </Link>
-            </div>
+        />
+        <ActionButtons 
+            className="addnotes-save"
+            redirectTo="/"
+            variant={["contained","outlined"]}
+            text={["Save & GoBack","Cancel"]}
+            save={handleSave}
+        />
         </div>
     )
 }

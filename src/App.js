@@ -2,7 +2,7 @@ import StickyApp from "./components/stickyNote";
 import AddNotes from "./components/addnote/addNotes";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ViewNotes from "./components/viewnote/viewNotes";
-import ErrorPage from "./components/errorPage";
+import ErrorPage from "./components/spareparts/errorPage";
 import '../src/components/style.css'
 function App() {
   return (
