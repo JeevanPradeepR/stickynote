@@ -7,11 +7,11 @@ import '../src/components/style.css'
 function App() {
   return (
     <div className="App">
-       <BrowserRouter>
+       <BrowserRouter basename="/stickynote">
         <Routes>
-            <Route index path="/stickynote" element={<StickyApp/>} />
-            <Route path="/add" element={<AddNotes/>} />
-            <Route path="/view/:id" element={<ViewNotes/>} />
+            <Route index element={<StickyApp/>} />
+            <Route  path="/add" element={<AddNotes/>} />
+            <Route exact path="/view/:id" element={<ViewNotes/>} />
             <Route path="*" element={<ErrorPage/>} />
         </Routes>
       </BrowserRouter>
