@@ -8,6 +8,7 @@ import PreviewAndEdit from "./previewEdit";
 import HeaderTitle from "./headerTitle";
 import ActionButtons from "./footer";
 import RemoveFile from "./removeFile";
+import DownloadFile from "../spareparts/downloadFile";
 
 function ViewNotes(){
     const location = useLocation();
@@ -65,10 +66,13 @@ function ViewNotes(){
                 />
             } 
             footer = {
+                <>
+                <DownloadFile title={noteId.title} note={noteId.note}/>
                 <PreviewAndEdit 
                     titleText={edit?'Edit':'View'} 
                     icon={edit?<EditIcon onClick={()=>setEdit(false)}/>:<PreviewIcon onClick={()=>setEdit(true)}/>}
                 />
+</>
             }
         />
 

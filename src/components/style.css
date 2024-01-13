@@ -97,3 +97,18 @@ body {
     from {background-color: #4dabf5; display: block;}
     to {background-color: white; display: block;}
   }
+
+.settings {
+    display: grid;
+    justify-items: center; 
+}
+.avatar:hover span {
+   display: none;
+}
+.avatar:hover::after {
+    content: '🖉';
+    font-size: 28px;
+}
+.avatar:hover {
+    background-color: #88c5f3;
+}
