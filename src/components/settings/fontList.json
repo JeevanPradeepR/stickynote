@@ -1,0 +1,24 @@
+{
+    "fontFamily": {
+        "options": ["Arial", "Verdana", "Tahoma", "Times New Roman", "Georgia", "Garamond", "Courier New", "Brush Script MT", "Chiller"],
+        "values":["Arial, sans-serif", "Verdana, sans-serif", "Tahoma, sans-serif", "Times New Roman, serif", "Georgia, serif", "Garamond, serif", "Courier New, monospace", "Brush Script MT, cursive", "Chiller"]
+    },
+    "fontStyle": {
+        "options": ["Normal", "Italic", "Bold", "Small caps"],
+        "values": ["normal", "oblique", "bold", "small-caps"]
+    },
+    "fontSize": {
+        "options": [8, 10, 12, 14, 16, 18, 22, 26, 32, 48],
+        "values": ["8px", "10px", "12px", "14px", "16px", "18px", "22px", "26px", "32px", "48px"]
+    },
+    "fontColor": {
+        "options": ["Navy", "BLUE", "AQUA", "TEAL", "PURPLE", "FUCHSIA", "MAROON", "RED", "ORANGE", "YELLOW", "OLIVE", "GREEN", "LIME", "BLACK LT", "GRAY",
+"SILVER", "Gold"],
+"values": ["#001f3f", "#0074D9", "#7FDBFF", "#39CCCC", "#B10DC9", "#F012BE", "#85144b", "#FF4136", "#FF851B", "#FFDC00", "#3D9970", "#2ECC40", 
+"#01FF70", "#111111", "#AAAAAA", "#DDDDDD", "gold"],
+"styles": [{"backgroundColor":"#001f3f"}, {"backgroundColor":"#0074D9"}, {"backgroundColor":"#7FDBFF"}, {"backgroundColor":"#39CCCC"}, 
+{"backgroundColor":"#B10DC9"}, {"backgroundColor":"#F012BE"}, {"backgroundColor":"#85144b"}, {"backgroundColor":"#FF4136"}, {"backgroundColor":"#FF851B"},
+{"backgroundColor":"#FFDC00"}, {"backgroundColor":"#3D9970"}, {"backgroundColor":"#2ECC40"}, {"backgroundColor":"#01FF70"}, {"backgroundColor":"#111111"},
+{"backgroundColor":"#AAAAAA"}, {"backgroundColor":"#DDDDDD"}, {"backgroundColor":"gold"}]
+    }
+}
