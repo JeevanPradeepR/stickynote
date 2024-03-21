@@ -9,6 +9,7 @@ import HeaderTitle from "./headerTitle";
 import ActionButtons from "./footer";
 import RemoveFile from "./removeFile";
 import DownloadFile from "../spareparts/downloadFile";
+import StoredStyle from "../spareparts/storedStyle";
 
 function ViewNotes(){
     const location = useLocation();
@@ -53,10 +54,11 @@ function ViewNotes(){
         if(!location.state){
             window.location.href = "/stickynote/error"
         }
+        console.log(StoredStyle())
         console.log(location.state);
     },[])
     return(
-        <div>
+        <div >
 
         <HeaderTemplate 
             headerComponent={
@@ -89,11 +91,12 @@ function ViewNotes(){
           multiline
           rows={4}
           className="viewnote"
-          sx={{marginTop:'2%'}}
+          sx={{marginTop:'2%',borderTopColor:'skyblue',backgroundColor:'white','div':{'textarea':StoredStyle()}}}
           disabled={edit}
           onInput={(e)=>setNoteId({...noteId,note:e.target.value})}
           defaultValue={noteId.note}
         />  
+
 
         <ActionButtons 
             className="viewnote-buttons"

@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import HeaderTemplate from "../spareparts/header";
 import ActionButtons from "./footer";
+import StoredStyle from "../spareparts/storedStyle";
 
 function AddNotes() {
     const [title,setTitle] = useState("Edit your title");
@@ -37,6 +38,7 @@ function AddNotes() {
           size="large"
           multiline
           rows={4}
+          sx={{'div':{'textarea':StoredStyle()}}}
           className="viewnote"
           defaultValue={note}
           onInput={(e)=>setNote(e.target.value)}

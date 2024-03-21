@@ -1,31 +1,53 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HeaderTemplate from "../spareparts/header";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
-import TextField from '@mui/material/TextField';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import Box from '@mui/material/Box';
-
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Shirt,{Theme} from '../spareparts/theme';
+import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
+import {Theme} from '../spareparts/theme';
 import DropdownComponent from "./dropdowns";
 import fonts from './fontList.json'
+import DefaultSettings from "./defaultSetting.json";
+import {Link} from "react-router-dom";
+import RevertSettings from "./revertSettings";
 
 function Settings(){
-  const [fontFamily, setFontFamily] = useState('');
-  const [fontStyles ,setFontStyle] = useState('')
-  const [fontSize ,setFontSize] = useState('')
-  const [fontColor ,setFontColor] = useState('')
+  const [showPopup, setShowPopup] =  useState(false);
+  useEffect(()=>{    
+    const settings = JSON.parse(localStorage.getItem("stickynoteSettings"));
+    if(settings.theme === 'bright') {
+        document.body.style.backgroundColor = 'white';
+    } else {
+        document.body.style.backgroundColor = 'rgb(15, 14, 14)';
+    }
+ },[])
+   const getValue = () => {
+    if(!localStorage.getItem("stickynoteSettings")){
+      localStorage.setItem("stickynoteSettings",  JSON.stringify(DefaultSettings))
+    }
+    return JSON.parse(localStorage.getItem("stickynoteSettings"))
+  }
+  const handleSave = () => {
+    const settings = {
+      "profile": "StickyNote",
+      "theme": "bright",
+      "font":{
+          "family": fontFamily,
+          "style": fontStyles,
+          "size": fontSize,
+          "color": fontColor
+      }
+    }
+    localStorage.setItem("stickynoteSettings",  JSON.stringify(settings))
+
+  }
+ 
+  const [fontFamily, setFontFamily] = useState(getValue().font.family);
+  const [fontStyles ,setFontStyle] = useState(getValue().font.style)
+  const [fontSize ,setFontSize] = useState(getValue().font.size)
+  const [fontColor ,setFontColor] = useState(getValue().font.color)
   const [editName, setEditOption] = useState(false)
 
   const handleFontFamilyChange = (event) => {
@@ -44,9 +66,24 @@ function Settings(){
     setFontColor(event.target.value)
   }
 
+  const handleConfirmation = () => {
+    if(localStorage.getItem("stickynoteSettings")){
+      localStorage.removeItem("stickynoteSettings")
+      localStorage.setItem("stickynoteSettings",  JSON.stringify(DefaultSettings))
+    }
+  }
+
+  const handleRevert = () => {
+      setShowPopup(true)
+  }
+
  return (<div>
     <HeaderTemplate/>
-    
+    <RevertSettings 
+            showPopup={showPopup}
+            handleConfirmDelete={handleConfirmation} 
+            setShowPopup={setShowPopup}
+    />
   <div className="settings">
       <div style=
       {{padding:'1% 1% 1% 1%', width:'50%', 
@@ -138,6 +175,14 @@ styles={fonts.fontColor.styles}
 />
 
         </details>
+        <p></p>
+        <Button variant="contained" color="info" onClick={handleRevert} startIcon={<SettingsBackupRestoreIcon/>}>Revert</Button> &nbsp;
+        <Link to="/" style={{color:'white'}}> 
+          <Button variant="contained" color="success" onClick={handleSave} startIcon={<SaveIcon/>}>Save & go back</Button>
+        </Link>&nbsp;
+        <Link to="/">
+          <Button variant="contained" color="error" startIcon={<CancelPresentationIcon/>}>Cancel</Button>
+        </Link>
       </div>
     
 

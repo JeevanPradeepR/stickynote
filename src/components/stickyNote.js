@@ -71,6 +71,13 @@ function StickyApp(){
     }
     useEffect(()=>{
        displayStickyNote();
+       
+       const settings = JSON.parse(localStorage.getItem("stickynoteSettings"));
+       if(settings.theme === 'bright') {
+           document.body.style.backgroundColor = 'white';
+       } else {
+           document.body.style.backgroundColor = 'rgb(15, 14, 14)';
+       }
     },[])
 
     return (

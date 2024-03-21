@@ -21,7 +21,7 @@ const DropdownComponent = ({title, options, values, defaultOptIndex=0, handleCha
         await generateComponent().
         then((component)=>
                 setOptions(
-                    <select style={{float:'inline-end',display:'flex'}} defaultValue = {options[defaultOptIndex]} onChange={handleChange}>
+                    <select style={{float:'inline-end',display:'flex'}} defaultValue = {defaultOptIndex} onChange={handleChange}>
                         {component}
                     </select>
                 )

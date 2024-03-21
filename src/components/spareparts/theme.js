@@ -8,16 +8,26 @@ export default function Shirt() {
 }
 
 export function Theme() {
-    const [dark, setDark] = useState(false)
-    const [light, setLight] = useState(true)
+    useEffect(()=>{
+        
+    },[])
+    const [dark, setDark] = useState(JSON.parse(localStorage.getItem("stickynoteSettings")).theme==='bright'?false:true)
+    const [light, setLight] = useState(JSON.parse(localStorage.getItem("stickynoteSettings")).theme==='dark'?true:false)
     const changeTheme = () => {
+        const settings = JSON.parse(localStorage.getItem("stickynoteSettings"));
         setDark(!dark)
         setLight(!light)
-        dark? document.body.style.backgroundColor = 'white': 
-        document.body.style.backgroundColor = 'rgb(15, 14, 14)'
+        if(dark) {
+            document.body.style.backgroundColor = 'white';
+            settings.theme = 'bright'
+        } else {
+            document.body.style.backgroundColor = 'rgb(15, 14, 14)';
+            settings.theme = 'dark'
+        }
+        localStorage.setItem("stickynoteSettings",  JSON.stringify(settings))
     }
     return(<div>
-        {dark?<Brightness4Icon style={{color:'#212121'}}
+        {JSON.parse(localStorage.getItem("stickynoteSettings")).theme==='dark'?<Brightness4Icon style={{color:'#212121'}}
             onClick={changeTheme}/>: <LightModeIcon onClick={changeTheme}/>}
             
            

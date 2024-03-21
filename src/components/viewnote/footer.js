@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 
 const ActionButtons = ({handleSave, handleDelete, noteId}) => {
     return(
-        <div class="viewnote-buttons">
+        <div className="viewnote-buttons">
             <Button variant="contained" startIcon={<SaveIcon/ >} color="primary" onClick={handleSave}>Save</Button>
             &nbsp;
             <Button variant="outlined" startIcon={<DeleteIcon />} onClick={handleDelete}>Delete</Button>
